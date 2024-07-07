@@ -30,7 +30,7 @@ public class DoorControl : MonoBehaviour
 		{
 			transform.position = Vector3.Lerp(transform.position, goalPos, moveSpeed * Time.deltaTime);
 			distance = Vector3.Distance(transform.position, goalPos);
-			yield return new WaitForSeconds(.5f);
+			yield return null; // new WaitForSeconds(.1f);
 		}
 	}
 

@@ -2,17 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StepPressurePad : MonoBehaviour
+public class StepPressurePad : PressurePad
 {
 	[SerializeField] private Material highLightedMaterial;
 	private MeshRenderer meshRenderer;
 	private Material originalMaterial;
 	private bool stepPadOn = false;
+	private bool stepPadOffChecked = false;
 
 	private void Awake()
 	{
 		meshRenderer = GetComponent<MeshRenderer>();
 		originalMaterial = meshRenderer.material;
+	}
+
+	private new void OnTriggerExit(Collider other) { } //null the trigger exit from PressurePad
+
+	public bool GetNumberStepPadOn()
+	{
+		return stepPadOn;
+	}
+
+	public void SetStepPadOffChecked()
+	{
+		stepPadOffChecked = true;
+	}
+	public bool GetStepPadOffChecked()
+	{
+		return stepPadOffChecked;
 	}
 
 	public void ControlOnOffStepPad()

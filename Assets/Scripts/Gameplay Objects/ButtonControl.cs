@@ -39,10 +39,13 @@ public class ButtonControl : MonoBehaviour, IInteractable
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.CompareTag(collisionTag))
+		if(collisionTag != "")
 		{
-			OnInteracted.Invoke();
-			Debug.Log("Trigger the button");
+			if (other.CompareTag(collisionTag))
+			{
+				OnInteracted.Invoke();
+				Debug.Log("Trigger the button");
+			}
 		}
 	}
 }

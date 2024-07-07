@@ -42,12 +42,12 @@ GameObject:
   - component: {fileID: 2700782754363461299}
   - component: {fileID: 2700782754363461298}
   - component: {fileID: 2700782754363461297}
-  - component: {fileID: 2700782754363461302}
+  - component: {fileID: 2803547959146753512}
   - component: {fileID: 2700782754363461301}
   - component: {fileID: 2700782754363461300}
   m_Layer: 0
   m_Name: Laser Turret
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -120,7 +120,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2700782754363461302
+--- !u!114 &2803547959146753512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -129,9 +129,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2700782754363461296}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78911c41c8bdd2e4fa3ef12a489425bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 71cccd9907873424b838c5638d4e4c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targets: []
+  agent: {fileID: 0}
   player: {fileID: 0}
 --- !u!114 &2700782754363461301
 MonoBehaviour:
@@ -146,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laserLine: {fileID: 2700782754363461300}
-  myController: {fileID: 2700782754363461302}
+  myController: {fileID: 2803547959146753512}
 --- !u!114 &2700782754363461300
 MonoBehaviour:
   m_ObjectHideFlags: 0

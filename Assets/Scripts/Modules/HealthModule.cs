@@ -4,23 +4,21 @@ using UnityEngine.Events;
 
 public class HealthModule : MonoBehaviour
 {
-    //[SerializeField] private int maxHealth;
+    [SerializeField] private int maxHealth = 1;
     private int currentHealth;
 
     public UnityEvent<int> OnHealthChange;
-	public UnityEvent OnDied;
     // Start is called before the first frame update
 
     public HealthModule()
     {
         currentHealth = 1;
         OnHealthChange = new UnityEvent<int>();
-        OnDied = new UnityEvent();
 	}
 
 	void Start()
     {
-        //currentHealth = maxHealth;
+        currentHealth = maxHealth;
 	}
 
     public void DeductHealth(int toDeduct) 
@@ -30,7 +28,7 @@ public class HealthModule : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            OnDied.Invoke();
+            GameManager.singleton.GameOver();
         }
     }
 

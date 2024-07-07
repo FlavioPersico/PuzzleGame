@@ -8,6 +8,7 @@ public class PuzzleRoom : MonoBehaviour
 	[SerializeField] private bool isCurrentPuzzle;
 	[SerializeField] private bool isCompleted;
 	[SerializeField] private UnityEvent OnPuzzleCompleted;
+	[SerializeField] private GameObject puzzleRoomNumber;
 	private void OnTriggerEnter(Collider other)
 	{
 		isCurrentPuzzle = true; 
@@ -17,12 +18,12 @@ public class PuzzleRoom : MonoBehaviour
 	{
 		if(isCompleted && isCurrentPuzzle)
 		{
-			ExitedAndFinishedPluzze();
+			ExitedAndFinishedPluzzle();
 		}
 		isCurrentPuzzle = false;
 	}
 
-	private void ExitedAndFinishedPluzze()
+	private void ExitedAndFinishedPluzzle()
 	{
 		OnPuzzleCompleted?.Invoke();
 		Destroy(gameObject);

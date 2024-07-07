@@ -5,13 +5,6 @@ using UnityEngine;
 
 public class AttackState : AIState
 {
-	private float time;
-	private float timer;
-	private float delayTime = 0.5f;
-	public void Start()
-	{
-		timer = delayTime;
-	}
 	public AttackState(AIController contr) : base(contr)
 	{
 	}
@@ -28,11 +21,6 @@ public class AttackState : AIState
 
 	public override void OnStateRun()
 	{
-		time = Time.time;
-		if (time > timer)
-		{
-			controller.GetPlayer().ReceiveDamage(1);
-			timer = time + delayTime;
-		}
+		controller.GetPlayer().ReceiveDamage(1);
 	}
 }

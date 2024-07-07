@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Bullet
+  - Enemy
+  - Turret
+  - GeneralItem
   layers:
   - Default
   - TransparentFX
