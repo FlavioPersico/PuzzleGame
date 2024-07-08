@@ -10,22 +10,22 @@ public class CutsceneManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.singleton.OnUnityLevelStart.AddListener(StartCutscene);
+        //GameManager.singleton.OnUnityLevelStart.AddListener(StartCutscene);
     }
 
 	private void StartCutscene()
     {
-        GameManager.singleton.LockPlayerInput();
-        director.Play();
+        //GameManager.singleton.LockPlayerInput();
+        //director.Play();
     }
 
 	public void OnCutsceneEnd()
 	{
-		GameManager.singleton.OnUnityLevelEnds.RemoveListener(StartCutscene);
+		//GameManager.singleton.OnUnityLevelEnds.RemoveListener(StartCutscene);
 	}
 
 	public enum CutsceneStartType
 	{
-		OnLevelStart, OnLevelFinish
+		//OnLevelStart, OnLevelFinish
 	}
 }

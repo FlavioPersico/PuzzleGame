@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 		}
 	}
 
-	private void Start()
+	/*private void Start()
 	{
 		StartLevel();
 	}
@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
 	public void UnlockPlayerInput()
 	{
 		player.enabled = true;
-	}
+	}*/
 
 	private void Update()
 	{
@@ -93,6 +93,11 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
 		uiManager.GameOver();
     }
+
+	public void EndGame()
+	{
+		uiManager.GameCompleted();
+	}
 
 	public void ExitGame()
 	{

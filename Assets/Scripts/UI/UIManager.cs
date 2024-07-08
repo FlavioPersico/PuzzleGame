@@ -9,6 +9,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject UIHowToPlay;
 	[SerializeField] private GameObject UIMenu;
 	[SerializeField] private GameObject UIGameOver;
+	[SerializeField] private GameObject UIGameEnded;
 
 	public static UIManager singleton;
     // Start is called before the first frame update
@@ -26,6 +27,11 @@ public class UIManager : MonoBehaviour
     {
         UIGameOver.SetActive(true);
     }
+
+	public void GameCompleted()
+	{
+		UIGameEnded.SetActive(true);
+	}
 
 	public void HowToPlay(bool param)
 	{
