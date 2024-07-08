@@ -6,7 +6,11 @@ using UnityEngine;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI healthUIValue;
-    public static UIManager singleton;
+    [SerializeField] private GameObject UIHowToPlay;
+	[SerializeField] private GameObject UIMenu;
+	[SerializeField] private GameObject UIGameOver;
+
+	public static UIManager singleton;
     // Start is called before the first frame update
     void Awake()
     {
@@ -17,4 +21,20 @@ public class UIManager : MonoBehaviour
     {
         healthUIValue.text = health.ToString();
     }
+
+    public void GameOver()
+    {
+        UIGameOver.SetActive(true);
+    }
+
+	public void HowToPlay(bool param)
+	{
+		UIHowToPlay.SetActive(param);
+	}
+
+	public void Menu()
+	{
+        UIMenu.SetActive(true);
+	}
+
 }
