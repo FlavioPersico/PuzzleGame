@@ -25,7 +25,8 @@ public class PlayerInput : MonoBehaviour
 	// Start is called before the first frame update
 	void Awake()
     {
-		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 
 	private void Start()

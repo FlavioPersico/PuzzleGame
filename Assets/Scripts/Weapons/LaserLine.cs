@@ -46,7 +46,7 @@ public class LaserLine : MonoBehaviour
 		{
 			lineLaser.SetPosition(0, startPosition.position);
 			lineLaser.SetPosition(1, finalPosition.position);
-			SoundControl.audioPlayer.PlayOneShot(laserAudio);
+			SoundControl.audioPlayer.PlayOneShot(laserAudio, 0.5f);
 			laserDistance = Vector3.Distance(startPosition.position, finalPosition.position);
 			objectCollision = LaserCollision();
 		}

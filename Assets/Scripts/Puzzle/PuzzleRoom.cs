@@ -6,9 +6,15 @@ using UnityEngine.Events;
 public class PuzzleRoom : MonoBehaviour
 {
 	[SerializeField] private bool isCurrentPuzzle;
-	[SerializeField] private bool isCompleted;
+	[SerializeField] public bool isCompleted { get; private set; }
 	[SerializeField] private UnityEvent OnPuzzleCompleted;
 	[SerializeField] private GameObject puzzleRoomNumber;
+
+	public void RoomCompleted()
+	{
+		isCompleted = true;
+	}
+
 	private void OnTriggerEnter(Collider other)
 	{
 		isCurrentPuzzle = true; 
@@ -26,6 +32,6 @@ public class PuzzleRoom : MonoBehaviour
 	private void ExitedAndFinishedPluzzle()
 	{
 		OnPuzzleCompleted?.Invoke();
-		Destroy(gameObject);
+		Destroy(this);
 	}
 }

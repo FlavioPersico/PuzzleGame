@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -7,6 +8,7 @@ public class ButtonControl : MonoBehaviour, IInteractable
 {
 	[SerializeField] private Material highLightedMaterial;
 	[SerializeField] private string collisionTag;
+	[SerializeField] private AudioClip buttonAudio;
 
 	public UnityEvent OnInteracted;
 	private MeshRenderer meshRenderer;
@@ -32,6 +34,7 @@ public class ButtonControl : MonoBehaviour, IInteractable
 
 	public void OnInteract(InteractModule module)
 	{
+		SoundControl.audioPlayer.PlayOneShot(buttonAudio, 10f);
 		OnInteracted.Invoke();
 		Debug.Log("Pressing the button");
 	}

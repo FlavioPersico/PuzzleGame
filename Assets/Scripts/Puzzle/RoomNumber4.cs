@@ -9,6 +9,7 @@ public class RoomNumber4 : MonoBehaviour
 	[SerializeField] private int amountOfCopiesPressed = 0;
 	[SerializeField] private UnityEvent OnPuzzleCompleted;
 	[SerializeField] private bool roomCompleted;
+	[SerializeField] private AudioClip pressureAudio;
 
 	private void Awake()
 	{
@@ -25,6 +26,7 @@ public class RoomNumber4 : MonoBehaviour
 		if(CheckNumberPadOn() == pressurePad.Count && !roomCompleted)
 		{
 			Debug.Log("Open Door");
+			SoundControl.audioPlayer.PlayOneShot(pressureAudio, 10f);
 			OnPuzzleCompleted.Invoke();
 			RoomCompleted();
 		}

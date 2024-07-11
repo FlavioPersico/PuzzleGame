@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour
 
 	public void EndGame()
 	{
-		//Time.timeScale = 0;
+		Time.timeScale = 0;
 		uiManager.GameCompleted();
 	}
 

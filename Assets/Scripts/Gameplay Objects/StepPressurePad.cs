@@ -5,6 +5,7 @@ using UnityEngine;
 public class StepPressurePad : PressurePad
 {
 	[SerializeField] private Material highLightedMaterial;
+	[SerializeField] private AudioClip pressureAudio;
 	private MeshRenderer meshRenderer;
 	private Material originalMaterial;
 	private bool stepPadOn = false;
@@ -39,11 +40,13 @@ public class StepPressurePad : PressurePad
 
 	public void OnStepPad()
 	{
+		SoundControl.audioPlayer.PlayOneShot(pressureAudio, 10f);
 		meshRenderer.material = highLightedMaterial;
 		stepPadOn = true;
 	}
 	public void OffStepPad()
 	{
+		SoundControl.audioPlayer.PlayOneShot(pressureAudio, 10f);
 		meshRenderer.material = originalMaterial;
 		stepPadOn = false;
 	}

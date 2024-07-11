@@ -20,8 +20,9 @@ public class InputController : MonoBehaviour
     private bool canLookWithMouse;
     private void Awake()
     {
-        Cursor.lockState = CursorLockMode.Confined;
-    }
+        Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
+	}
 
     private void Start()
     {

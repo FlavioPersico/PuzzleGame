@@ -9,14 +9,8 @@ public class DoorControl : MonoBehaviour
 	[SerializeField] private Transform doorOpenPosition;
 	[SerializeField] private Transform doorClosedPosition;
 	[SerializeField] private float moveSpeed = 0.1f;
-
+	[SerializeField] private AudioClip doorAudio;
 	private bool doorOpen = false;
-	
-
-	private void Start()
-	{
-		
-	}
 
 	public void ControlDoor()
 	{
@@ -25,7 +19,8 @@ public class DoorControl : MonoBehaviour
 
 	IEnumerator MoveDoor(Vector3 goalPos)
 	{
-		float distance = Vector3.Distance(transform.position, goalPos); ;
+		float distance = Vector3.Distance(transform.position, goalPos);
+		SoundControl.audioPlayer.PlayOneShot(doorAudio, 10f);
 		while(distance > 0.1f)
 		{
 			transform.position = Vector3.Lerp(transform.position, goalPos, moveSpeed * Time.deltaTime);

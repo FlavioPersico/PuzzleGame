@@ -10,12 +10,6 @@ public class LaserTurret : MonoBehaviour
 	private bool attacking;
 	private bool turretOn = false;
 
-	private void Start()
-	{
-		TurretOnOff();
-		//laserLine = FindObjectOfType<LaserLine>();
-		//myController = FindObjectOfType<AIController>();
-	}
 	void Update()
 	{
 		if (turretOn)
@@ -27,7 +21,13 @@ public class LaserTurret : MonoBehaviour
 					myController.ChangeState(new AttackState(myController));
 				}
 				attacking = true;
-				myController.ChangeState(new IdleState(myController));
+			}
+			else
+			{
+				if (attacking == true)
+				{
+					myController.ChangeState(new IdleState(myController));
+				}
 				attacking = false;
 			}
 		}
