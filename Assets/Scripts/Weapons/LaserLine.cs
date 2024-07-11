@@ -16,6 +16,7 @@ public class LaserLine : MonoBehaviour
 	[SerializeField] private float laserSize = 2f;
 	[SerializeField] private float laserDistance = 2f;
 	[SerializeField] private LayerMask maskPlayer;
+	[SerializeField] private AudioClip laserAudio;
 	public bool objectCollision { get; private set; }
 	public bool playerCollision { get; private set; }
 	private Color c1 = Color.yellow;
@@ -45,6 +46,7 @@ public class LaserLine : MonoBehaviour
 		{
 			lineLaser.SetPosition(0, startPosition.position);
 			lineLaser.SetPosition(1, finalPosition.position);
+			SoundControl.audioPlayer.PlayOneShot(laserAudio);
 			laserDistance = Vector3.Distance(startPosition.position, finalPosition.position);
 			objectCollision = LaserCollision();
 		}

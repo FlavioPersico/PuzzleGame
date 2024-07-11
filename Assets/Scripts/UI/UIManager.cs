@@ -24,12 +24,16 @@ public class UIManager : MonoBehaviour
     }
 
     public void GameOver()
-    {
+	{ 
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;    
         UIGameOver.SetActive(true);
     }
 
 	public void GameCompleted()
 	{
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 		UIGameEnded.SetActive(true);
 	}
 
@@ -38,9 +42,11 @@ public class UIManager : MonoBehaviour
 		UIHowToPlay.SetActive(param);
 	}
 
-	public void Menu()
+	/*public void Menu()
 	{
-        UIMenu.SetActive(true);
-	}
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
+		UIMenu.SetActive(true);
+	}*/
 
 }

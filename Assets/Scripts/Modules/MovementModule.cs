@@ -6,7 +6,7 @@ public class MovementModule : MonoBehaviour
 {
     [SerializeField] private CharacterController controller;
     [SerializeField] private Transform headUpDown;
-    [SerializeField] private float movementSpeed;
+	[SerializeField] private float movementSpeed;
     private Vector3 moveDirection;
     private Vector2 aimDirection;
 

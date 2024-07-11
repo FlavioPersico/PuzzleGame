@@ -26,7 +26,7 @@ public class HealthModule : MonoBehaviour
         currentHealth -= toDeduct;
         //OnHealthChange.Invoke(currentHealth);
 
-        if(currentHealth <= 0)
+        if(currentHealth == 0)
         {
             GameManager.singleton.GameOver();
         }

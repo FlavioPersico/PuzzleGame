@@ -5,30 +5,31 @@ using UnityEngine;
 public class LaserTurret : MonoBehaviour
 {
 	[SerializeField] private LaserLine laserLine;
+	[SerializeField] private ParticleSystem particleSystem;
 	[SerializeField] private AIController myController;
 	private bool attacking;
-	private bool turretOn;
+	private bool turretOn = false;
 
 	private void Start()
 	{
-		turretOn = true;
+		TurretOnOff();
 		//laserLine = FindObjectOfType<LaserLine>();
 		//myController = FindObjectOfType<AIController>();
 	}
 	void Update()
 	{
-		if (laserLine.objectCollision == true && laserLine.playerCollision == true)
+		if (turretOn)
 		{
-			if (attacking == false)
+			if (laserLine.objectCollision == true && laserLine.playerCollision == true)
 			{
-				myController.ChangeState(new AttackState(myController));
+				if (attacking == false)
+				{
+					myController.ChangeState(new AttackState(myController));
+				}
+				attacking = true;
+				myController.ChangeState(new IdleState(myController));
+				attacking = false;
 			}
-			attacking = true;
-		}
-		else
-		{
-			myController.ChangeState(new IdleState(myController));
-			attacking = false;
 		}
 	}
 
@@ -39,6 +40,7 @@ public class LaserTurret : MonoBehaviour
 			turretOn = false;
 			laserLine.LaserOnOff(turretOn);
 			laserLine.enabled = false;
+			particleSystem.Stop();
 		}
 		else
 		{
@@ -46,6 +48,7 @@ public class LaserTurret : MonoBehaviour
 			laserLine.gameObject.SetActive(turretOn);
 			laserLine.LaserOnOff(turretOn);
 			laserLine.enabled = true;
+			particleSystem.Play();
 		}
 	}
 }

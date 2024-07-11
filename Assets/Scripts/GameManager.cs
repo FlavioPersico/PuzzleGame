@@ -8,23 +8,16 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
 	[SerializeField] private UIManager uiManager;
+	[SerializeField] private AudioClip audioClip;
     public static GameManager singleton;
 
-	public UnityEvent OnUnityLevelStart;
-	public UnityEvent OnUnityLevelEnds;
+	//public UnityEvent OnUnityLevelStart;
+	//public UnityEvent OnUnityLevelEnds;
 	private InputController player;
 
 	private void Awake()
 	{
-		if (singleton == null)
-		{
 			singleton = this;
-			DontDestroyOnLoad(gameObject);
-		}
-		else
-		{
-			Destroy(gameObject);
-		}
 	}
 
 	/*private void Start()
@@ -62,28 +55,33 @@ public class GameManager : MonoBehaviour
 	}
 	public void StartGame()
 	{
+		SoundControl.audioPlayer.PlayOneShot(audioClip);
 		Invoke("LoadGame", 2f);
 	}
 
 	public void HowToPlay()
 	{
+		SoundControl.audioPlayer.PlayOneShot(audioClip);
 		uiManager.HowToPlay(true);
 	}
 
 	public void HowToPlayReturn()
 	{
+		SoundControl.audioPlayer.PlayOneShot(audioClip);
 		uiManager.HowToPlay(false);
 	}
 
 	public void LoadGame()
 	{
 		Time.timeScale = 1;
+		SoundControl.audioPlayer.PlayOneShot(audioClip);
 		SceneManager.LoadScene("game");
 	}
 
 	public void LoadMenu()
 	{
 		Time.timeScale = 1;
+		SoundControl.audioPlayer.PlayOneShot(audioClip);
 		SceneManager.LoadScene("MainMenu");
 	}
 
@@ -96,6 +94,7 @@ public class GameManager : MonoBehaviour
 
 	public void EndGame()
 	{
+		//Time.timeScale = 0;
 		uiManager.GameCompleted();
 	}
 
