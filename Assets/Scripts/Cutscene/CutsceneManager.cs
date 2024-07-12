@@ -5,27 +5,16 @@ using UnityEngine.Playables;
 
 public class CutsceneManager : MonoBehaviour
 {
-    [SerializeField] private CutsceneStartType cutSceneType;
-    [SerializeField] private PlayableDirector director;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //GameManager.singleton.OnUnityLevelStart.AddListener(StartCutscene);
-    }
+    [SerializeField] private float changeTime;
+    [SerializeField] private string sceneLoad;
 
-	private void StartCutscene()
-    {
-        //GameManager.singleton.LockPlayerInput();
-        //director.Play();
-    }
-
-	public void OnCutsceneEnd()
+	private void Update()
 	{
-		//GameManager.singleton.OnUnityLevelEnds.RemoveListener(StartCutscene);
+		changeTime -= Time.deltaTime;
+		if (changeTime <= 0)
+		{
+			GameManager.singleton.CutSceneChange(sceneLoad);
+		}
 	}
 
-	public enum CutsceneStartType
-	{
-		//OnLevelStart, OnLevelFinish
-	}
 }

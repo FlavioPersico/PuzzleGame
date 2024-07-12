@@ -6,6 +6,11 @@ public class ElevatorControl : MonoBehaviour
 {
 	[SerializeField] private Animator animator;
 
+	private void Start()
+	{
+		ElevatorUp();
+	}
+
 	public void ElevatorController()
 	{
 		if (animator != null)

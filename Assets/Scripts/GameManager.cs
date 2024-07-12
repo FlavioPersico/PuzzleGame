@@ -11,40 +11,12 @@ public class GameManager : MonoBehaviour
 	[SerializeField] private AudioClip audioClip;
     public static GameManager singleton;
 
-	//public UnityEvent OnUnityLevelStart;
-	//public UnityEvent OnUnityLevelEnds;
 	private InputController player;
 
 	private void Awake()
 	{
 			singleton = this;
 	}
-
-	/*private void Start()
-	{
-		StartLevel();
-	}
-
-	public void StartLevel()
-	{
-		player = FindObjectOfType<InputController>();
-		OnUnityLevelStart?.Invoke();
-	}
-
-	public void FinishLevel()
-	{
-		OnUnityLevelEnds?.Invoke();
-	}
-
-	public void LockPlayerInput()
-	{
-		player.enabled = false;
-	}
-
-	public void UnlockPlayerInput()
-	{
-		player.enabled = true;
-	}*/
 
 	private void Update()
 	{
@@ -56,7 +28,7 @@ public class GameManager : MonoBehaviour
 	public void StartGame()
 	{
 		SoundControl.audioPlayer.PlayOneShot(audioClip);
-		Invoke("LoadGame", 2f);
+		SceneManager.LoadScene("IntroCutScene");
 	}
 
 	public void HowToPlay()
@@ -101,5 +73,10 @@ public class GameManager : MonoBehaviour
 	public void ExitGame()
 	{
 		Application.Quit();
+	}
+
+	public void CutSceneChange(string sceneLoad)
+	{
+		SceneManager.LoadScene(sceneLoad);
 	}
 }
